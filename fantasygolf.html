@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <script src="golf.js"></script>
+    
     <title>Fantasy Golf</title>
 </head>
 <body>
     <div id="form">
         <div>
-            <label>Position of Player:</label>
-            <input type="number" name="length"/>
+            <textarea readonly id="overallScore"></textarea>
         </div>
         <div>
-            <button type= "submit">Total the score:</button>
+            <button id="generate" class="btn">Total the score</button>
         </div>
         <p id="score"> </p>
     </div>
+    <script src="golf.js"></script>
 </body>
 </html>
