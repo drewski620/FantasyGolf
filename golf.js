@@ -1,101 +1,53 @@
-var yesEl = document.getElementById("yes");
-var noEl = document.getElementById("no");
+var yesBtn = document.getElementById("yes");
+var noBtn = document.getElementById("no");
+var positionEl = document.getElementById("position");
+var totalBtn = document.getElementById("total")
 var scoreEl = document.getElementById("score")
-var position = document.getElementById("position");
-var totalEl = document.getElementById("total")
+var totalScoreEl = document.getElementById("totalScore")
+var clearBtn = document.getElementById("clear")
 
 var totalScore = 0;
 
 
-yesEl.addEventListener("click", function (event) {
+yesBtn.addEventListener("click", function (event) {
     event.preventDefault()
     totalScore = 10
     console.log(totalScore)
-    var response = "Your player score is at " + totalScore
+    var response = "Your player's darkhorse points is at " + totalScore
     scoreEl.textContent = response;
 })
 
-noEl.addEventListener("click", function (event) {
+noBtn.addEventListener("click", function (event) {
     event.preventDefault()
     totalScore = 0;
-    var response = "Your player score is at " + totalScore
+    var response = "This player is not a dark horse " + totalScore
     scoreEl.textContent = response;
 })
 
-totalEl.addEventListener("click", function (event) {
+function addScore() {
     event.preventDefault();
-    
-    if (position <= 30 && position > 20) {
-        totalScore += 10
-        var response = "Your player score is at " + totalScore
-        scoreEl.textContent = response;
-    } else if (position <= 20 && position > 10) {
-        totalScore += 20
-        var response = "Your player score is at " + totalScore
-        scoreEl.textContent = response;
-    } else if (position <= 10 && position > 5) {
-        totalScore += 30
-        var response = "Your player score is at " + totalScore
-        scoreEl.textContent = response;
-    } else if (position <= 5 && position > 1) {
+    if (positionEl.value <= 30 && positionEl.value > 20) {
+        totalScore += 10;
+    } else if (positionEl.value <= 20 && positionEl.value > 10) {
+        totalScore += 20;
+    } else if (positionEl.value <= 10 && positionEl.value > 5) {
+        totalScore += 30;
+    } else if (positionEl.value <= 5 && positionEl.value > 1) {
         totalScore += 40;
-        var response = "Your player score is at " + totalScore
-        scoreEl.textContent = response;
-    } else if (position === 1) {
+    } else if (positionEl.value == 1) {
         totalScore += 50;
-        var response = "Your player score is at " + totalScore
-        scoreEl.textContent = response;
     } else {
-        totalScore;
+        totalScore += 0
     }
+    var total = "Your total score with this player is " + totalScore
+    totalScoreEl.textContent = total
+}
 
-    console.log(totalScore)
-})
-// function addScore(position) {
+function clearScore() {
+    event.preventDefault();
+    var total = "You clear the score " + totalScore * 0;
+    totalScoreEl.textContent = total
+}
 
-
-
-// }
-
-
-// position.addEventListener("click", function (event) {
-//     event.preventDefault();
-//     if (position <= 30 && position > 20) {
-//         totalScore += 10 
-//     } else if (position <= 20 && position > 10) {
-//         totalScore += 20
-//     } else if (position <= 10 && position > 5) {
-//         totalScore += 30
-//     } else if (position <= 5 && position > 1) {
-//         totalScore += 40;
-//     } else if (position === 1) {
-//         totalScore += 50;
-//     } else {
-//         totalScore;
-//     }
-//     console.log(totalScore)
-//     var response = "Your player score is at " + totalScore
-//     scoreEl.textContent = response;
-// })
-
-// submitEl.addEventListener("click", function (event) {
-//     event.preventDefault();
-
-// })
-
-// var totalScore = 0;
-// var darkHorse = totalScore + 10;
-
-
-
-
-// var generateBtn = document.querySelector("#generate")
-
-// function writeScore() {
-//     var score = addScore();
-//     var scoreText = document.querySelector('#overallScore')
-
-//     scoreText.value = score;
-// }
-
-// generateBtn.addEventListener('click', writeScore)
+totalBtn.addEventListener("click", addScore);
+clearBtn.addEventListener("click", clearScore);
