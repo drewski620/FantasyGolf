@@ -50,23 +50,20 @@ function addScore() {
     document.getElementById("myList").appendChild(list)
     
 }
-// function addPlayerList() {
-//     event.preventDefault();
 
-//     var list = document.createElement("LI")
-//     var playerTotal = document.querySelector("#totalScore").lastChild
-//     var t = document.createTextNode(playerName.value + ": " + totalScore + " points" )
-//     list.appendChild(t);
-//     document.getElementById("myList").appendChild(list)
-    
+// function addPlayersScores() {
+//     event.preventDefault();
+//     for(var i = 0; i < totalScore.length; i++) {
+//         totalScore = totalForPlayers
+//     } 
 // }
 
 function clearScore() {
     event.preventDefault();
-    
-    var total = "You clear the score " + totalScore * 0;
+    totalScore = 0
+    var total = "Fill In The Form Again " 
     totalScoreEl.textContent = total
-    var response = "Your player's darkhorse points is at " + totalScore * 0;
+    var response = ""
     scoreEl.textContent = response
     playerName.value = ""
     positionEl.value = ""
@@ -75,4 +72,4 @@ function clearScore() {
 
 totalBtn.addEventListener("click", addScore);
 clearBtn.addEventListener("click", clearScore);
-
+// totalForPlayers.addEventListener("click", addPlayersScores)
